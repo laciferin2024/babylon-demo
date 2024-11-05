@@ -1,4 +1,6 @@
 {
-  "privateKey": "",
-  "network": "testnet"
+  "privateKey": "...",
+  "network": "testnet",
+  "url": "https://api-test-holesky.p2p.org/api/v1/babylon-btc/testnet",
+  "token": "Bearer ..."
 }

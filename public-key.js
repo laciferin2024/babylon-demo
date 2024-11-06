@@ -2,12 +2,14 @@ import * as bitcoin from "bitcoinjs-lib";
 import * as ecc from "tiny-secp256k1";
 import { BIP32Factory } from "bip32";
 import { readFileSync } from "fs";
-import wif from "wif";
+import { wif } from "@okxweb3/coin-bitcoin"
 
 bitcoin.initEccLib(ecc);
 
 const bip32 = BIP32Factory(ecc);
 const config = JSON.parse(readFileSync("./config.json", "utf-8"));
+
+// config.privateKey = process.env.PRIVATE_KEY;
 
 const signet = {
   messagePrefix: "\x18Bitcoin Signed Message:\n",

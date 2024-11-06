@@ -3,8 +3,9 @@ import { signPsbtWithKeyPathAndScriptPath } from "@okxweb3/coin-bitcoin";
 import { readFileSync } from "fs";
 import * as tinysecp from "tiny-secp256k1";
 
+
 initEccLib(tinysecp);
-const config = JSON.parse(readFileSync("./config.json"));
+const config = JSON.parse(readFileSync("./config.json", "utf8"));
 
 export function signTX(txHex) {
   const network =

@@ -3,8 +3,14 @@ import { signTX } from "./sign.js";
 import axios from "axios";
 import { readFileSync } from "fs";
 
+import dotenv from "dotenv"
+
+dotenv.config()
 // Constants
 const config = JSON.parse(readFileSync("./config.json", "utf-8"));
+
+// config.privateKey = process.env.PRIVATE_KEY
+
 const API_BASE_URL = config.url;
 const AUTH_TOKEN = config.token;
 
@@ -24,8 +30,7 @@ async function initiateRequest() {
   const url = `${API_BASE_URL}/staking/stake`;
   const data = {
     stakerPublicKey: publicKey,
-    stakerAddress:
-      "tb1pm79ml0vjlm4wgkp4x5476nx46rwuvm52v3ha0ln364lath7wrqmqs05t7e",
+    stakerAddress:config.stakerAddress,
     stakeAmount: 30000,
     stakingDuration: 150,
   };

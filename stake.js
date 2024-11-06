@@ -35,6 +35,8 @@ async function initiateRequest() {
     stakingDuration: 150,
   };
 
+  console.log({data})
+
   try {
     const response = await axios.post(url, data, {
       headers: getAuthorizationHeaders(),
@@ -53,7 +55,7 @@ async function initiateRequest() {
 async function broadcastTx(txHex) {
   const url = `${API_BASE_URL}/transaction/send`;
   const data = {
-    transactionHex: txHex,
+    tranasctionHex: txHex, //FIXME:typo should upgrade
     maxFee: 1000000,
   };
 

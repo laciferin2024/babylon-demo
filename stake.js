@@ -1,6 +1,7 @@
 import { generateKeys } from "./public-key.js";
 import { signTX } from "./sign.js";
 import axios from "axios";
+import { readFileSync } from "fs";
 
 // Constants
 const config = JSON.parse(readFileSync("./config.json", "utf-8"));
